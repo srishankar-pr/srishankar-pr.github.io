@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Srishankarpr-portfolio-website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      * {
+        margin: 30;
+        padding: 0;
+      }
+      body {
+        font-family: "JetBrains Mono", monospace;
+        background-color: #0a0f1c;
+        color: #f5f7fa;
+        font-size: 20px;
+        line-height: 1.6;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Press Start 2P", cursive;
+        color: #f5f7fa;
+        text-transform: uppercase;
+      }
+      nav {
+        font-family: "Press Start 2P", cursive;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100px;
+        background-color: #0a0f1c;
+        padding: 10px;
+        flex-wrap: wrap;
+        border-bottom: 1px solid #aab4c8;
+      }
+      nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      nav ul li {
+        list-style-type: none;
+        margin: 0 15px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: #f5f7fa;
+      }
+      nav ul li a:hover {
+        color: blue;
+        font-size: 1.05rem;
+      }
+      p,
+      footer {
+        font-family: "JetBrains Mono", monospace;
+      }
+      .left {
+        font-size: 1.5rem;
+      }
+      .firstSection {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 110px 0;
+        flex-wrap: wrap;
+      }
+      .leftSection {
+        margin: 5px 0;
+        max-width: 800px;
+        text-align: center;
+      }
+      .rightSection img {
+        max-width: 100%;
+        height: auto;
+      }
+      .intro {
+        font-family: "Press Start 2P", cursive;
+        font-size: 3rem; /* BIG like your original */
+      }
+      .description {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 1.3rem;
+        margin-top: 20px;
+      }
+      .name {
+        color: rgb(56, 221, 243);
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 768px) {
+        nav {
+          height: auto;
+          flex-direction: column;
+        }
+        nav ul {
+          margin-top: 10px;
+        }
+        .intro {
+          font-size: 2.5rem; /* smaller but still big */
+        }
+        .description {
+          font-size: 2rem;
+        }
+        .left {
+          font-size: 1.2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .intro {
+          font-size: 1.5rem; /* fits tiny screens */
+        }
+        .description {
+          font-size: 1rem;
+        }
+        .secondSection {
+          max-width: 80vw;
+          margin: 15px;
+        }
+      }
+      main hr {
+        border: 0;
+        background-color: #fcfcfc;
+        height: 2px;
+      }
+      /* --- About Section --- */
+      .about-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3rem;
+        align-items: flex-start;
+      }
+      .about-text,
+      .about-skills {
+        flex: 1 1 400px;
+      }
+      .about-text h3,
+      .about-skills h3 {
+        text-align: left;
+        font-size: 1.5rem;
+        color: rgb(56, 221, 243);
+      }
+      .skills-list {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin-top: 1rem;
+      }
+      .skills-list li {
+        background-color: #1c2a4a;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: transform 0.2s ease;
+      }
+      .skills-list li:hover {
+        transform: translateY(-3px);
+        background-color: rgb(56, 221, 243);
+        color: #0a0f1c;
+      }
+            .achievements-list {
+          max-width: 800px;
+          margin: 0 auto;
+      }
+      .achievement-item {
+          background: #0e1629;
+          padding: 1.5rem;
+          border-left: 4px solid rgb(56, 221, 243);
+          margin-bottom: 1.5rem;
+          border-radius: 0 8px 8px 0;
+      }
+      .achievement-item h3 {
+          text-align: left;
+          font-size: 1.2rem;
+          margin: 0 0 0.5rem 0;
+      }
+            /* --- Contact Section --- */
+      #contact {
+          text-align: center;
+      }
+      .contact-text {
+          max-width: 600px;
+          margin: 0 auto 2rem auto;
+      }
+      .social-links a {
+          color: #f5f7fa;
+          font-size: 2.5rem;
+          margin: 0 1rem;
+          transition: transform 0.3s ease, color 0.3s ease;
+          display: inline-block;
+      }
+      .social-links a:hover {
+          transform: scale(1.2);
+          color: rgb(56, 221, 243);
+      }
+      
+      /* --- Footer --- */
+      footer {
+          text-align: center;
+          padding: 2rem;
+          margin-top: 2rem;
+          border-top: 1px solid #aab4c8;
+      }
+
+      /* --- Responsive Styles --- */
+      @media (max-width: 900px) {
+        .intro { font-size: 2rem; }
+        .description { font-size: 1.1rem; }
+      }
+
+      @media (max-width: 768px) {
+        nav { justify-content: center; }
+        nav .left { margin-bottom: 1rem; }
+        .section-heading { font-size: 1.8rem; }
+      }
+
+      @media (max-width: 480px) {
+        body { font-size: 1rem; }
+        .intro { font-size: 1.5rem; }
+        .rightSection img { max-width: 280px; }
+
+              /* --- Projects Section --- */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+      }
+      .project-card {
+        background-color: #0e1629;
+        border: 1px solid #aab4c8;
+        border-radius: 8px;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+      }
+      .project-card h3 {
+        font-size: 1.3rem;
+        color: rgb(56, 221, 243);
+      }
+      .project-card .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 1rem 0;
+      }
+      .project-card .tech-stack span {
+        font-size: 0.8rem;
+        background: #1c2a4a;
+        padding: 0.3rem 0.6rem;
+        border-radius: 4px;
+      }
+      .project-links {
+        margin-top: auto; /* Pushes links to the bottom */
+        padding-top: 1rem;
+      }
+      .project-links a {
+        color: #f5f7fa;
+        margin-right: 1.5rem;
+        font-size: 1.5rem;
+        transition: color 0.3s ease;
+      }
+      .project-links a:hover {
+        color: rgb(56, 221, 243);
+      }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="left"><span class="name">Srishankar P R</span></div>
+
+        <div class="right">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="firstSection">
+        <div class="leftSection">
+          <div class="intro"><span id="typed-name"></span></div>
+          <div class="description">
+            <p>
+              Aspiring <span class="name">software developer</span> with
+              interests in development, open-source, and IoT.
+              <span class="name">Focused on building real-world projects.</span>
+            </p>
+          </div>
+        </div>
+        <div class="rightSection">
+          <img
+            src="pfp.png"
+            alt="profile-picture"
+            class="profile-pic"
+            width="600"
+          />
+        </div>
+      </section>
+
+      <hr />
+
+      <section class="section" id="about">
+        <h2 class="section-heading">About Me</h2>
+        <div class="about-container">
+          <div class="about-text">
+            <h3>My Story</h3>
+            <p>
+              I’m a second-year engineering student passionate about building
+              projects that blend creativity and problem-solving. My interests
+              span across web development, data structures & algorithms, and
+              embedded systems, and I’m constantly exploring new technologies to
+              sharpen my skills. Right now, I’m working on projects ranging from
+              sustainability solutions to fun applications with ESP32-based IoT builds. Alongside academics, I’m
+              actively preparing for internships , aiming to gain hands-on experience and contribute to
+              impactful projects. Outside of coding, I enjoy experimenting with
+              ideas, turning small sparks into real-world prototypes, and
+              learning by building.
+            </p>
+          </div>
+          <div class="about-skills">
+            <h3>My Tech Stack</h3>
+            <ul class="skills-list">
+              <li>Python</li>
+              <li>C++</li>
+              <li>Git & GitHub</li>
+              <li>Arduino</li>
+              <li>ESP32</li>
+              <li>HTML</li>
+              <li>CSS</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <hr />
+           <section class="section" id="projects">
+        <h2 class="section-heading">Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Esp32 Spotify Dashboard</h3>
+                <p>An ESP32 Spotify Dashboard is a hardware project that displays live Spotify track information—such as song title, artist, and playback status—in real time on an SSD1306 OLED screen using an ESP32 microcontroller, Python, and the Spotify API</p>
+                <div class="tech-stack">
+                    <span>Python</span>
+                    <span>C++</span>
+                    <span>Esp32</span>
+                    <span>Spotify Web-Api</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/srishankar-pr/esp32-spotify-dashboard" target="_blank" title="GitHub Repo"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>Planetary Projectile Pathway</h3>
+                <p>Planetary Projectile Pathway is an interactive simulator that visualizes 2D projectile motion across different planets, allowing users to customize gravity, launch angle, and wind conditions with real-time animated trajectories and instant physics calculations. Built for physics education and experimentation, it features a large, themed display area and a user-friendly Python/Tkinter interface for intuitive exploration.</p>
+                <div class="tech-stack">
+                    <span>Python</span>
+                    <span>Tkinter</span>
+                    <span>Python standard Math library</span>
+                    
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/srishankar-pr/planetary-projectile-pathway" target="_blank" title="GitHub Repo"><i class="fab fa-github"></i></a>
+                  
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>Sim Racing Dashboard for Assetto Corsa</h3>
+                <p>The sim-racing-dashboard is an ESP32-based embedded system that delivers real-time F1-style telemetry from Assetto Corsa to a physical SSD1306 OLED display, showing live speed, gear, lap time, pit status, and car name for a true racing HUD experience. It combines C++ firmware for the display, a Python telemetry extractor, and serial communication to bridge virtual racing with a hands-on dashboard build</p>
+                <div class="tech-stack">
+                    <span>ESP32 microcontroller</span>
+                    <span>C++</span>
+                    <span>Python</span>
+                    <span>pyaccsharedmemory</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/srishankar-pr/sim-racing-dashboard" target="_blank" title="GitHub Repo"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+      </section>
+      
+      <hr>
+            <section class="section" id="achievements">
+        <h2 class="section-heading">Achievements</h2>
+        <div class="achievements-list">
+            <div class="achievement-item">
+                <h3>3rd place in First Year Mini Project Exhibition</h3>
+                <p>Won 3rd place in the First Year Mini Project Exhibition (CSE Department) at Dayananda Sagar College of Engineering, demonstrating teamwork and innovation in project development.</p>
+            </div>
+            <div class="achievement-item">
+                <h3>Point Blank CTF 2025– Placed 22nd out of 150 teams</h3>
+                <p>Placed 22nd out of 150 participating teams in Point Blank CTF 2025, demonstrating strong cybersecurity skills and teamwork in a competitive national-level Capture The Flag event.</p>
+            </div>
+             <div class="achievement-item">
+                <h3>Code in Place 2025</h3>
+                <p>Completed Stanford University's Code in Place 2025, a selective, intensive six-week program based on CS106A that covered programming fundamentals, control flow, functions, graphics, and event-driven logic using Python. Gained hands-on experience through practical assignments and collaborative, mentored learning with a global cohort..</p>
+            </div>
+        </div>
+      </section>
+
+      <hr>
+
+      <section class="section" id="contact">
+        <h2 class="section-heading">Get In Touch</h2>
+        <p class="contact-text">
+            I'm currently looking for new opportunities and my inbox is always open. Whether you have a question or just want to say hi, I'll get back to you!
+        </p>
+        <div class="social-links">
+           
+            <a href="https://www.linkedin.com/in/srishankar-p-r-2642a8344/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/srishankar-pr" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://x.com/Shankyy63466?t=kh2wngUTl8i4He5bMDdiAA&s=09" target="_blank" title="Twitter/X"><i class="fab fa-twitter"></i></a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Srishankar P R. All Rights Reserved.</p>
+    </footer>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+      var typed = new Typed("#typed-name", {
+        strings: ["Hi, my name is Srishankar P R"],
+        typeSpeed: 70,
+        backSpeed: 40,
+        showCursor: true,
+        loop: false,
+      });
+    </script>
+  </body>
+</html>
